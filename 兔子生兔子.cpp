@@ -31,3 +31,37 @@ int main()
     printf("%d\n",ans);
     return 0;
 }
+
+/*
+int main()   //这种方法会导致vector太大，导致42以后的无法正常运行
+{
+    vector<int> age;
+    age.push_back(0);
+    int n;
+    while(scanf("%d",&n)!=EOF)
+    {
+        while(n!=0)
+        {
+            n--;
+            for(vector<int>::iterator it=age.begin();it!=age.end();it++)
+            {
+                (*it)++;    //不打括号会死循环，优先级导致运算符结合顺序不同
+            }
+            vector<int>::iterator enddd=age.end();
+            for(vector<int>::iterator it=age.begin();it!=enddd;it++)
+            {
+                if((*it)>=5)
+                {
+                    age.push_back(0);
+                }
+            }
+        }
+        cout<<age.size()<<endl;
+        age.clear();
+        age.push_back(0);
+       // cout<<age.size()<<endl;
+    }
+    //cout<<age.size()<<endl;
+    return 0;
+}
+*/
