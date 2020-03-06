@@ -13,12 +13,13 @@ int main()
 {
     char str[maxn];
     char rev[maxn]; //临时存放反码
+    int i=0;
     while(1)
     {
     gets(str);
     if(str[0]=='!'&&str[1]=='\0')
         return 0;
-    for(int i=0;i<strlen(str);i++)
+    for(i=0;i<strlen(str);i++)
     {
         if(str[i]>='a'&&str[i]<='z')
         {
@@ -33,6 +34,7 @@ int main()
             rev[i]=str[i];
         }
     }
+    rev[i]='\0';
     puts(rev);
     }
 }
