@@ -1,3 +1,9 @@
+//现有一个更简单的思想：a+b+c-2*max(a,b,c)，太牛逼了，只要三行就搞定，根本不需要排序
+
+
+
+
+
 #include <stdio.h>
 #include <algorithm>
 
