@@ -25,10 +25,10 @@ int main()
         if(t==m)
             break;
         q.pop();
-        for(int i=0;i<n;i++) //也许应现对num数组降序排序，等和zyh讨论一下
+        for(int i=0;i<n;i++) //
         {
             int w=num[i]+t;
-            if(w<=m&&!dis[w])  //未超过且可访问
+            if(w<=m&&!dis[w])  //未超过且可访问，这里没有问题，不会发生后来的出现重复值然后覆盖的情况，因为dis[w]!=0表示已经更新过该状态，不会进入到if语句里
             {
                 dis[w]=dis[t]+1;
                 q.push(w);
