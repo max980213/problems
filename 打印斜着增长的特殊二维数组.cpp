@@ -13,7 +13,7 @@ int main()
         }
     }
 
-    for(int j=1;j<10;j++)
+    for(int j=1;j<10;j++)   //处理右下三角，从角落开始会更容易，但我偏不
     {
         for(int i=9;i>=j;i--)
         {
