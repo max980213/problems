@@ -17,52 +17,47 @@ n表示牌的数目，1<n<1000，k表示下面要进行的操作数量。
 
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <algorithm>
 
-//左右均为闭区间
+using namespace std;
 
-void reverse(int ans[],int left,int right)
+void reverse(int a[],int left,int right) //左闭右闭
 {
-    int temp;
     int i=left,j=right;
-    for(int k=0;k<(right-left)/2+1;k++)
+    while(i<=j)   //小于等于是防止有偶数个时，i++ j--不会相遇
     {
-        temp=ans[i];
-        ans[i++]=ans[j];
-        ans[j--]=temp;
-
+        swap(a[i],a[j]);
+        i++;
+        j--;
     }
 }
 
-void shift(int ans[],int n,int m)
+void shift(int a[],int p,int n)
 {
-    reverse(ans,0,n-1);
-    reverse(ans,0,n-m-1);
-    reverse(ans,n-m,n-1);
+    reverse(a,0,n-1);
+    reverse(a,0,n-1-p);
+    reverse(a,n-p,n-1);
 }
 
-void flip(int ans[],int n)
+void flip(int a[],int n)
 {
-    int mid=n/2;
-    reverse(ans,0,mid-1);
+    reverse(a,0,n/2-1);
 }
-
 
 int main()
 {
     int n,k;
-    //scanf("%d %d",&n,&k);
-    n=6;
-    k=1;
-    int ans[n]={1,2,3,4,5,6};
-    int m;
+    scanf("%d %d",&n,&k);
+    int a[n];
+    for(int i=0;i<n;i++)
+        a[i]=i+1;
+    int p;
     for(int i=0;i<k;i++)
     {
-        scanf("%d",&m);
-        shift(ans,n,m);
-        flip(ans,n);
+        scanf("%d",&p);
+        shift(a,p,n);
+        flip(a,n);
     }
     for(int i=0;i<n;i++)
-        printf("%d ",ans[i]);
-    return 0;
+        printf("%d ",a[i]);
 }
