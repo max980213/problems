@@ -1,7 +1,3 @@
-/*
-题目描述：读入m，生成一个大小为2^m的环，使环上从任意位置开始的m位二进制数都不相同
-如m=3，生成00010111，对应0，1，2，5，3，7，6，4
-
 #include <stdio.h>
 #include <string.h>
 
@@ -9,6 +5,16 @@
 #define M 10
 
 int b[N+M-1];
+
+int b2d(int k,int m)
+{
+    int ans=0;
+    for(int i=0;i<m;i++)
+    {
+        ans=ans*2+b[k+i];
+    }
+    return ans;
+}
 
 bool equal(int k,int j,int m)  //用来判断两个m位二进制数是否相等，逐位比较
 {
@@ -51,5 +57,10 @@ int main()
 
     for(int i=0;i<n;i++)
         printf("%d",b[i]);
+    printf("\n");
+    for(int i=0;i<n;i++)
+    {
+        printf("%d\n",b2d(i,m));
+    }
     return 0;
 }
