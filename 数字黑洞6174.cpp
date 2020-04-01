@@ -47,7 +47,7 @@ int main()
         sort(num,num+4);
         MIN=to_number(num);
         n=MAX-MIN;
-        printf("%d - %d = %d\n",MAX,MIN,n);
+        printf("%04d - %04d = %04d\n",MAX,MIN,n);   //04表示高位补0，按4位右对齐，如果需要左对齐，加一个-号  补别的字符不知道怎么弄
         if(n==6174)
             flag++;
         if(n==0||flag==3)
