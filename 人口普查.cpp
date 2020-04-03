@@ -28,19 +28,19 @@ Steve 1967/11/20
 #include <string>
 #include <iostream>
 #include <algorithm>
-
+ 
 using namespace std;
-
+/*
 typedef struct person
 {
     string name,birthday;
 }person;
-
+ 
 bool cmp(person a,person b)
 {
     return a.birthday>b.birthday;
 }
-
+ 
 int main()
 {
     int n;
@@ -69,5 +69,39 @@ int main()
             break;
     }
     cout<<j-i+1<<" "<<data[j].name<<" "<<data[i].name;   //年龄大的年份小，我就是个憨憨
+    return 0;
+}
+*/
+ 
+//有更好的方法：即在输入时直接检查
+ 
+int main()
+{
+    string old="1814/09/06";
+    string young="2014/09/06";
+    string name,birthday,oldestname="",youngestname="",oldestage="2014/09/06",youngestage="1814/09/06";
+    int n,cnt=0;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>name>>birthday;
+        if(old<=birthday&&birthday<=young) //符合要求
+        {
+            cnt++; //统计个数
+            if(birthday>youngestage)  //更年期
+            {
+                youngestname=name;
+                youngestage=birthday;
+            }
+            if(birthday<oldestage) //更老
+            {
+                oldestname=name;
+                oldestage=birthday;
+            }
+        }
+        else
+            continue;
+    }
+    cout<<cnt<<" "<<oldestname<<" "<<youngestname;
     return 0;
 }
