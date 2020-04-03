@@ -48,7 +48,7 @@ int main()
     i-=2;
     int left=n-num;  //剩下这么多
     //int a[i][i];   //画图  //不需开数组，直接输出
-    //下标为1
+    //下标为1，因为i是从1开始的行数
     for(int r=1;r<=i;r++) //行
     {
         for(int j=1;j<=i;j++)  //列
