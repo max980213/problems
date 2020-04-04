@@ -1,21 +1,3 @@
-/*
-题目描述
-输入两个非负10进制整数A和B(<=230-1)，输出A+B的D (1 < D <= 10)进制数。
-
-输入描述:
-输入在一行中依次给出3个整数A、B和D。
-
-
-输出描述:
-输出A+B的D进制数。
-
-输入例子:
-123 456 8
-
-输出例子:
-1103
-*/
-
 #include <stdio.h>
 #include <stack>
 
@@ -26,6 +8,11 @@ int main()
     int a,b,m;
     scanf("%d %d %d",&a,&b,&m);
     int c=a+b;
+    if(c==0)
+    {
+        printf("0");
+        return 0;
+    }
     stack <int> st;
     while(c!=0)
     {
